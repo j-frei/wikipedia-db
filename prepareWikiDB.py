@@ -84,9 +84,6 @@ def parseWiki(wiki_file,sqlite_file,overwrite=False):
     wiki.close()
 
 def main():
-    parseWiki("enwiki-latest-pages-articles.xml","wiki.sqlite")
-
-def main():
     import argparse
 
     parser = argparse.ArgumentParser(description='Convert Wikipedia XML dump to SQLite')
