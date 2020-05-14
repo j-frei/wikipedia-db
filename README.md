@@ -10,7 +10,7 @@ Run the script `generateWikipediaSQLite.sh`. This script performs the following 
 The data only contains the first abstract of all Wikipedia pages.  
 
 The SQLite database maintains two DB tables:  
- - `redirect` with columns `origin`, `target` that stores the redirection links to their targets. Root pages are represented as `<page_title>`->`<rootnode>`. "<rootnode>" is a keyword.
+ - `redirect` with columns `origin`, `target` that stores the redirection links to their targets. Root pages are represented as `<page_title>`->`<rootnode>`. "\<rootnode\>" is a keyword.
  - `content` with columns `title`, `content` that maps each title to the abstract of its page.
 
 
