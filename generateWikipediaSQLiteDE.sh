@@ -10,16 +10,16 @@ echo "# #                                 # #"
 echo "# # # # # # # # # # # # # # # # # # # #"
 echo
 
-wiki="enwiki-latest-pages-articles.xml"
-wiki_bz2="enwiki-latest-pages-articles.xml.bz2"
-wiki_link="https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2"
-sqlite_file="wiki.sqlite"
+wiki="dewiki-latest-pages-articles.xml"
+wiki_bz2="dewiki-latest-pages-articles.xml.bz2"
+wiki_link="https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2"
+sqlite_file="dewiki.sqlite"
 
 need_download=0
 need_extract=0
 need_convert=0
 
-if [ -f "wiki.sqlite" ]; then
+if [ -f "${sqlite_file}" ]; then
     echo "Wikipedia SQLite file does exist: $(pwd)/${sqlite_file}"
 else
     # SQLite file is missing
@@ -36,7 +36,7 @@ fi
 
 if [ "$need_extract" -eq "1" ]; then
     if [ ! -f "$wiki" ]; then
-        echo "Therefor we need to extract the wiki dump."
+        echo "Therefor we need to download the wiki dump."
         need_download=1
     fi
 fi
