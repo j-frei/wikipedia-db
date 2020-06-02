@@ -1,7 +1,7 @@
 # Wikipedia SQLite Extraction Tool
 
 ## How to Use
-Run the script `generateWikipediaSQLite.sh`. This script performs the following steps:  
+Run the script `generateWikipediaSQLiteEN.sh` (`generateWikipediaSQLiteDE.sh` for German). This script performs the following steps:  
  - Downloading the latest Wikipedia dump (in English) from the internet
  - Extracting the obtained data
  - Convert the XML file into a SQLite file.
@@ -14,5 +14,5 @@ The SQLite database maintains two DB tables:
  - `content` with columns `title`, `content` that maps each title to the abstract of its page.
 
 
-`searchWikiDB.py` implements a simple lookup check that determines whether a term is associated with a medication.
+`searchWikiDB.py` implements a simple lookup check that determines whether a term is associated with a medication (for English terms).
 
