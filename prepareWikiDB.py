@@ -31,7 +31,7 @@ def processPage(el,cursor):
     c = { tag(e):e for e in el.getchildren()}
     title = c["title"].text
 
-    # check for skippable page 
+    # check for skippable page
     pfx_match = ptnStart.fullmatch(title)
     if not pfx_match:
         # does not start with Portal:..., etc
@@ -48,8 +48,7 @@ def processPage(el,cursor):
                 abstract = article[:article.find("\n=")]
                 cursor.execute("INSERT INTO content VALUES (?,?)",(title,abstract))
             except:
-                import code
-                code.interact(local=locals())
+                print("Found empty entry. Skipping...")
     else:
         # skip page
         pass
