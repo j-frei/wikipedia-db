@@ -4,7 +4,7 @@ dpath = os.path.dirname(__file__)
 
 
 def checkWiki(input_term):
-    db_path = os.path.join(dpath,"wiki.sqlite")
+    db_path = os.path.join(dpath,"enwiki.sqlite")
     if not os.path.exists(db_path):
         raise Exception("DB not found: {}".format(db_path))
 
