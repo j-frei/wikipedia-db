@@ -40,13 +40,7 @@ def lookupATCen():
 
     atcCodes = {}
     for r in results:
-        if "losamide" in r["title"]:
-            print("OMGOMGOMGOMGOMG NICLOSAMIDE")
-            print(r["title"])
         ATCs = extractATC1(r) + extractATC2(r)
-        if r["title"] == "Niclosamide":
-            print("ATCs")
-            print(ATCs)
         if len(ATCs) == 0:
             print("No codes found for: {}".format(r["title"]), file=sys.stderr)
         # add ATC codes to global ATC codes
