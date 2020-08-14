@@ -73,14 +73,17 @@ def getPostgresCredentials():
     }
 
 def pre_parsing(db):
-    c = db.cursor()
     try:
+        c = db.cursor()
         c.execute("DROP TABLE decontent;")
+        c.execute("DROP TABLE deredirect;")
+        c.close()
     except:
         pass
 
+    c = db.cursor()    
     # create tables
-    c.execute("CREATE TABLE decontent (item text UNIQUE, content text);")
+    c.execute("CREATE TABLE decontent (item text, content text);")
     c.execute("CREATE TABLE deredirect (origin text, target text);")
     db.commit()
 
