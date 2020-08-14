@@ -25,7 +25,7 @@ def processPage(el,cursor):
         # does not start with Portal:..., etc
         # write redirect link or mark as rootnode
         target = c["redirect"].attrib["title"] if "redirect" in c else "<rootnode>"
-        cursor.execute("INSERT INTO deredirect VALUES (?,?)", (title,target))
+        cursor.execute("INSERT INTO deredirect VALUES (%(title)s,%(target)s))", {"title":title,"target":target})
 
         # check node for content data
         if "revision" in c:
@@ -33,7 +33,7 @@ def processPage(el,cursor):
             try:
                 # extract content
                 article = rev_c["text"].text
-                cursor.execute("INSERT INTO decontent VALUES (?,?)",(title,article))
+                cursor.execute("INSERT INTO decontent VALUES (%(title)s,%(article)s)",{"title":title,"article":article})
             except:
                 print("Found empty entry. Skipping...")
     else:
@@ -73,15 +73,15 @@ def getPostgresCredentials():
     }
 
 def pre_parsing(db):
-    try:
-        c = db.cursor()
-        c.execute("DROP TABLE decontent;")
-        c.execute("DROP TABLE deredirect;")
-        c.close()
-    except:
-        pass
+    #try:
+    #    c = db.cursor()
+    #    c.execute("DROP TABLE decontent;")
+    #    c.execute("DROP TABLE deredirect;")
+    #    c.close()
+    #except:
+    #    pass
 
-    c = db.cursor()    
+    c = db.cursor()
     # create tables
     c.execute("CREATE TABLE decontent (item text, content text);")
     c.execute("CREATE TABLE deredirect (origin text, target text);")
