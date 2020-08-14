@@ -25,7 +25,7 @@ def processPage(el,cursor):
         # does not start with Portal:..., etc
         # write redirect link or mark as rootnode
         target = c["redirect"].attrib["title"] if "redirect" in c else "<rootnode>"
-        cursor.execute("INSERT INTO deredirect VALUES (%(title)s,%(target)s))", {"title":title,"target":target})
+        cursor.execute("INSERT INTO deredirect VALUES (%(title)s,%(target)s)", {"title":title,"target":target})
 
         # check node for content data
         if "revision" in c:
