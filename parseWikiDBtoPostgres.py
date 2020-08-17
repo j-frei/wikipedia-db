@@ -90,7 +90,7 @@ def pre_parsing(db):
 def post_parsing(db):
     c = db.cursor()
     c.execute("CREATE INDEX decontent_item_idx ON decontent (item);")
-    c.execute("CREATE INDEX decontent_item_idx ON deredirect (origin, target);")
+    c.execute("CREATE INDEX deredirect_item_idx ON deredirect (origin, target);")
     db.commit()
 
 def main():
